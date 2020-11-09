@@ -1,0 +1,78 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.form-row {
+    display: flex;
+    width: 1100px;
+}
+
+.register-form {
+    margin-left: 0px;
+}
+
+.form-group {
+    margin: 20px;
+}
+
+.form-submit {
+
+    margin-bottom: 5px;
+}
+
+.card {
+    margin-left: 200px;
+    width: 1000px;
+}
+
+.form-select {
+    width: 440px;
+}
+
+.btn-dark {
+    width: 100%;
+}
+
+.interest_register-form {
+    margin-left: 300px;
+}
+
+.partner_register-form {
+    margin-left: 250px;
+}
+
+.update_password-form {
+    margin-left: 250px;
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
+
+
+.edit_icon {
+   
+    float: right;
+    justify-content: center;
+    
+  }
+
+ .edit_icon:hover{
+    display: block;
+    color: brown;
+  }
+
+.signup-content  .update_image_form {
+    margin-left: 350px !important;
+    margin: 80px;
+    width: 500px;
+}
+.update_image_form #update_image {
+    width: 500px;
+    height: 200px;
+}

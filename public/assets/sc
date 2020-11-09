@@ -1,0 +1,193 @@
+<ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Personal Information</p>
+                  </a>
+                </li>
+
+                  <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Profile Created By</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Looking For</p>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Community</p>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Location</p>
+                      </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Marital Status</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Have Children</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Height</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Body Type</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Hair Color</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Eye Color</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Complexion</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Disabilities</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Blood Group</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Education</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Profession</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Annual Income</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Drink</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Diet</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Smoke</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Mother Tongue</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Can Speak</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Family Value</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Personal Value</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Father</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Mother</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>No Of Brother</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>No Of Sister</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Whom Brother Married</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>Whom Brother Sister</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">
+                        
+                        <p>District</p>
+                      </a>
+                    </li>
+                    </ul>

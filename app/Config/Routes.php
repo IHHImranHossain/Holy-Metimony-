@@ -112,7 +112,10 @@ $routes->post('update_user_image', 'UserController::update_user_image');
 
 $routes->get('your_cv', 'UserController::your_cv'); 
 
-$routes->get('user_profile_view', 'UserController::user_profile_view'); 
+$routes->get('user_profile_view/(:num)', 'UserController::user_profile_view/$1'); 
+
+$routes->post('sent_mail', 'UserController::sent_mail');
+// $routes->get('user_profile_view', 'UserController::user_profile_view'); 
 
 $routes->get('logout', 'UserController::logout');
 

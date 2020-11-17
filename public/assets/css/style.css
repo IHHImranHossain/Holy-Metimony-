@@ -568,7 +568,11 @@ label.error:after {
 }
 .head{
   padding-left: 57px;
-  color: black;
+  color: #dd666c;
+}
+.search-form .search_title
+{
+  color: #dd666c;
 }
 @media screen and (max-width: 1024px) {
   .container {
@@ -610,7 +614,7 @@ label.error:after {
   }
   .head{
     padding-left: 0px;
-    color: black;
+    color: #dd666c;
   }
 }
 

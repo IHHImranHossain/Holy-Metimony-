@@ -3,7 +3,7 @@
 <div class="signup-form">
     <br>
     <form method="POST" class="search-form" action="<?= base_url('marital_status_search_fetch')?>">
-        <h2 class="head">Marital Status Search</h2> <br>
+        <h2 class="search_title">Marital Status Search</h2> <br>
 
         <div class="form-group">
             <div class="form-select">

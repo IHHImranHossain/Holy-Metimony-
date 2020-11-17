@@ -6,16 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="public/assets/css/util.css">
-	<link rel="stylesheet" type="text/css" href="public/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="public/assets/css/login.css">
 <!--===============================================================================================-->
 </head>
 <body>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-			<div>
-			
-			</div>
+		
 				<form class="login100-form validate-form" method="POST" action="<?= base_url('login') ?>">
 					<span class="login100-form-title ">
 						Log In

@@ -30,7 +30,7 @@
 
                                 <div class="form-input">
                                     <label for="interest" class="required">Write Your Interest</label>
-                                    <textarea style="width: 700px; height:100px" type="text" name="interest" id="interest" placeholder="Ex: Pets, Travelling, Health & Fit"></textarea>
+                                    <textarea class="interest_registation_textarea" type="text" name="interest" id="interest" placeholder="Ex: Pets, Travelling, Health & Fit"></textarea>
                                 </div>
 
                                     <div class="danger" role="danger">
@@ -39,7 +39,7 @@
 
                                 <div class="form-input">
                                     <label for="music" class="required">Write Your Fevoutire Music</label>
-                                    <textarea style="width: 700px; height:100px" type="text" name="music" id="music" placeholder="Ex: POP, R&B "></textarea>
+                                    <textarea class="interest_registation_textarea" type="text" name="music" id="music" placeholder="Ex: POP, R&B "></textarea>
                                 </div>
 
                                     <div class="danger" role="danger">
@@ -48,7 +48,7 @@
 
                                 <div class="form-input">
                                     <label for="reads" class="required">Write Your Fevoutire Reads</label>
-                                    <textarea style="width: 700px; height:100px" type="text" name="reads" id="reads" placeholder="Ex: Fantasy, Online News "></textarea>
+                                    <textarea class="interest_registation_textarea" type="text" name="reads" id="reads" placeholder="Ex: Fantasy, Online News "></textarea>
                                 </div>
 
                                     <div class="danger" role="danger">
@@ -57,7 +57,7 @@
                                 
                                 <div class="form-input">
                                     <label for="movies" class="required">Write Your Fevoutire Movies</label>
-                                    <textarea style="width: 700px; height:100px" type="text" name="movies" id="movies" placeholder="Ex: Movie Names "></textarea>
+                                    <textarea class="interest_registation_textarea" type="text" name="movies" id="movies" placeholder="Ex: Movie Types like Horror "></textarea>
                                 </div>
 
                                     <div class="danger" role="danger">
@@ -66,7 +66,7 @@
 
                                 <div class="form-input">
                                     <label for="cooking" class="required">Write Your Fevoutire Cooking</label>
-                                    <textarea style="width: 700px; height:100px" type="text" name="cooking" id="cooking" placeholder="Ex: Kabab, Fast Food"></textarea>
+                                    <textarea class="interest_registation_textarea" type="text" name="cooking" id="cooking" placeholder="Ex: Kabab, Fast Food"></textarea>
                                 </div>
 
                                     <div class="danger" role="danger">
@@ -75,7 +75,7 @@
 
                                 <div class="form-input">
                                     <label for="dress_style" class="required">Write Your Fevoutire Dress Style</label>
-                                    <textarea style="width: 700px; height:100px" type="text" name="dress_style" id="dress_style" placeholder="Ex: Casual, Trendy"></textarea>
+                                    <textarea class="interest_registation_textarea" type="text" name="dress_style" id="dress_style" placeholder="Ex: Casual, Trendy"></textarea>
                                 </div> 
 
                                     <div class="danger" role="danger">

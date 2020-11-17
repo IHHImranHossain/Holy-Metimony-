@@ -18,10 +18,19 @@ class LoginController extends BaseController
 
 	public function index()
 	{
-		$title = [
+		$data = [
 			'title'=> 'BDShaadi.com',
 		];
-		return view('home/index',$title);
+		
+		$items = new ItemModel();
+
+        $data['looking'] = $items->getlookingfor();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['districts'] = $items->get_district();
+        $data['professions'] = $items->get_profession();
+        $data['locations'] = $items->getlocation();
+		return view('home/index',$data);
 	}
 
 	public function user_login()
@@ -40,15 +49,6 @@ class LoginController extends BaseController
 		// $password = $_POST['password'];
 		// $password = $result['password'];
 		$password =  $this->request->getVar("password");
-		// dd($password);
-		// exit();
-		// if(password_verify($password, $result['password'])) {
-		// 	echo "Nice";
-		// }
-
-		//exit();
-		
-
 		if ($result == true) 
 		{
 			if ($result['type'] == 'User') 
@@ -67,22 +67,10 @@ class LoginController extends BaseController
 						'phone_number'  =>	$result['phone_number'],
 					];
 					$session->set($newdata);
-					// $user = new LoginModel();
-					// $id  = $user->getInsertID();
-					// $session->set('user',$id);
-					// $session->set('user');
-					// $session->set('user',$result['first_name']);
-					// $session->set('user',$result['id']);
-					// var_dump($session);
-					// exit();
 					
 					$data = [
 						'title'=> 'User Page',
 					];
-					// $user = new LoginModel();
-					// $query  = $user->get();
-					// $data['user_id'] = $session->get('id');
-					// $data['alldata'] = $query->getResultArray();
 					require('UserController.php');
 					$data['kk'] = new UserController();
 					$data['kk']->index();
@@ -102,27 +90,6 @@ class LoginController extends BaseController
 				echo "Email or Password is wrong!";
 				return view('home/index',$title);
 			}
-			// elseif($result['type'] == 'Admin')
-			// {
-			// 	if(password_verify($password, $result['password'])) 
-			// 	{
-			// 		$session = \Config\Services::session();
-			// 		$session = session();
-			// 		$session->set('user',$result['first_name']);
-			// 		// var_dump($session);
-			// 		// exit();
-					
-			// 		$title = [
-			// 			'title'=> 'User Page',
-			// 		];
-			// 		return view('admin/dashboard',$title);
-			// 	}
-			// 	else
-			// 	{
-			// 		echo "Email or Password is wrong!";
-			// 		return view('home/index',$title);
-			// 	}
-			// }
 		}
 	}
 
@@ -285,7 +252,6 @@ class LoginController extends BaseController
 	
 	}
 	
-
 	public function secondregistration()
 	{
 		$items = new ItemModel();

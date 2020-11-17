@@ -23,15 +23,4 @@ class PersonalRegistratioinModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    // function get_user_id()
-    // {
-    //     $session = session();
-    //     $id = $session->get('id');
-    //     $query = $this->db->query("SELECT * FROM register where user_id = $id ");
-    //     // dd($id);
-    //     // exit();
-    //     $results = $query->getResultArray();
-    //     return $results;
-    // }
-
 }

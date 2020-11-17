@@ -16,14 +16,67 @@
 
 /* mobile or only mobile */
 @media (max-width: 767px) {
+	
+	.top-header .navbar .navbar-collapse .mobile_view{
+		display: block;
+	}
+	.lbox-caption {
+		
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		z-index: 10;
+	}
+	.lbox-details .search {
+		background: rgba(0,0,0,0.5);
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 100px;
+		border-radius: 10px;
+		padding: 5px;
+		position: relative;
+		z-index: 3;
+		margin-bottom: -207px
+	}
+	.lbox-details h1 {
+		font-size: 34px;
+	}
+	.pogoSlider {
+		width: 100%;
+		/* height: 50% !important; */
+		background-image: url(public/home/images/slider-01.jpg);
+		position: relative;
+		overflow: hidden;
+		padding-bottom: 500px!important;
+	}
+	.form-group select {
+		font-size: 10px;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		margin-right: 60px;
+		border-radius: 5px;
+		white-space: pre;
+		width: 50%;
+	}
+	.search label {
+		font-size: 18px;
+		text-align: left !important;
+		color: whitesmoke;
+		white-space: pre;
+	}
+
 	.navbar-brand{
 		margin-left: 15px;
 	}
 	.top-header .navbar .navbar-collapse ul li a{
 		padding: 5px 15px;
 	}
-	.lbox-details h1{
-		font-size: 24px;
+	.lbox-details h1 {
+		font-size: 27px;
+		margin-bottom: -85px;
+	}
+	.lbox-details p {
+		margin-bottom: -29px;
 	}
 	.lbox-details h2{
 		font-size: 18px;

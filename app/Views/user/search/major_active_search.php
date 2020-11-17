@@ -3,7 +3,7 @@
 <div class="signup-form">
     <br>
     <form method="POST" class="search-form" action="<?= base_url('major_active_search_fetch')?>">
-        <h2 class="head">Major Activity Search</h2> <br>
+        <h2 class="search_title">Major Activity Search</h2> <br>
 
         <div class="form-group">
             <div class="form-select">

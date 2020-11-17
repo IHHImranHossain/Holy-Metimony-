@@ -3,7 +3,7 @@
 <div class="signup-form">
     <br>
     <form method="POST" class="search-form" action="<?= base_url('profession_search_fetch')?>">
-        <h2 class="head">Profession Search</h2> <br>
+        <h2 class="search_title">Profession Search</h2> <br>
 
         <div class="form-group">
             <div class="form-select">
@@ -25,29 +25,6 @@
                         <?php
                         } 
                     ?>
-                    </select>
-                </div>
-            </div><br>
-
-
-            <div class="form-select">
-                <div class="label-flex">
-                    <label for="community">Community</label>
-                </div>
-                <div class="select-list">
-                    <select name="community" id="community" class="form-control">
-                        <option selected disabled>...Select Community...</option>
-                        <?php 
-                            foreach($communitys as $each)
-                            {
-                        ?>
-
-                        <option value="<?php echo $each['id']; ?>">
-                            <?php echo $each['items_name']; ?></option>';
-
-                        <?php
-                            } 
-                        ?>
                     </select>
                 </div>
             </div><br>

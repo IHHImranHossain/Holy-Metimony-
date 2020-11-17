@@ -765,7 +765,11 @@
     padding: 0 16px;
     border-radius: 4px;
   }
-
+  .logo-mobile {
+    width: 50%;
+    height: auto;
+    margin-left: 80px;
+  }
   #about-us .page-home .cms-block.f-left {
     margin-top: 0;
     margin-bottom: 2rem;
@@ -858,7 +862,8 @@
 
   body header .header-mobile {
     padding: 10px 20px;
-    background: #343434;
+    padding-bottom: 35px;
+    background: #63c7bd;
     -webkit-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.3);
     -ms-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.3);
@@ -896,8 +901,22 @@
   .footer-one .footer-top .m-top1 {
     margin-top: 3.5rem;
   }
+  .block-content ul li .footer_link {
+    color: whitesmoke;
+  }
+  .main-menu .menu-top .view_mobile_account{
+    display: block !important;
+  }
 
   /*=================== menu =================== */
+  .side_search_manu
+  {
+    display: none;
+  }
+  .block-content ul li a {
+    color: #dd6666;
+
+}
   .active-show {
     visibility: visible !important;
     opacity: 1 !important;
@@ -1680,6 +1699,40 @@
   #contact .header-contact .item.last {
     margin-bottom: 0;
     float: left;
+  }
+  .search-form {
+    margin: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+  .search_card {
+   
+    width: 340px;
+    height: 135px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom:-100px ;
+  }  
+  a {
+    font-size: 16px;
+  }
+  .card-text:last-child {
+    font-size: 10px;
+  }
+  
+  .profile_img {
+    height: 10rem;
+    width: 6.5rem;
+  }
+  .profile_view{
+    margin-top: -205px;
+    margin-left: -64px;
+  }
+  .view_card_text{
+    display: none;
+  }
+  #view_profile_text{
+    display: none;
   }
 }
 @media screen and (max-width: 425px) {

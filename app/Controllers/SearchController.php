@@ -28,20 +28,31 @@ class SearchController extends BaseController
     }
     public function quick_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['locations'] = $items->getlocation();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
-        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for, register.community, register.location, register.marital_status,partner_preferance.age_range_from, partner_preferance.age_range_to');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.looking_for,register.community,register.dob,register.location,register.marital_status
+        ,register.height,register.profession,register.mother_tongue
+        ,partner_preferance.age_range_from, partner_preferance.age_range_to,');
         $builder->join('register', 'user.id = register.user_id');
         $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['quick_search_data'] = $query->getResultArray();
+        $data['quick_search_data'] = $query->getResultArray();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
 			"age_range_from" => $this->request->getVar("age_range_from"),
             "age_range_to" => $this->request->getVar("age_range_to"),
@@ -50,42 +61,50 @@ class SearchController extends BaseController
             "location" => $this->request->getVar("location"),
 			
         ];
-        return view('user/search/quick_search_fetch',$results);
+        return view('user/search/quick_search_fetch',$data);
     }
     public function profession_search()
     {
         $items = new ItemModel();
 
         $data['looking'] = $items->getlookingfor();
-        $data['communitys'] = $items->getcommunity();
         $data['professions'] = $items->get_profession();
         return view('user/search/profession_search',$data);
     }
     public function profession_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['locations'] = $items->getlocation();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
-        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for, register.community, register.profession');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.looking_for, register.community,register.dob,register.location,register.marital_status
+        ,register.height,register.profession,register.mother_tongue');
         $builder->join('register', 'user.id = register.user_id');
-        $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['profession_search_data'] = $query->getResultArray();
+        $data['profession_search_data'] = $query->getResultArray();
 
         // dd($results['quick_search_data']);
         // exit();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
             "community" => $this->request->getVar("community"),
             "profession" => $this->request->getVar("profession"),
 			
         ];
-        return view('user/search/profession_search_fetch',$results);
+        return view('user/search/profession_search_fetch',$data);
     }
     public function marital_status_search()
     {
@@ -97,25 +116,34 @@ class SearchController extends BaseController
     }
     public function marital_status_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['locations'] = $items->getlocation();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
-        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for,register.marital_status');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.looking_for,register.community,register.dob,register.location,register.marital_status
+        ,register.height,register.profession,register.mother_tongue');
         $builder->join('register', 'user.id = register.user_id');
-        $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['marital_status_search'] = $query->getResultArray();
+        $data['marital_status_search'] = $query->getResultArray();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
             "marital_status" => $this->request->getVar("marital_status"),
 			
         ];
-        return view('user/search/marital_status_search_fetch',$results);
+        return view('user/search/marital_status_search_fetch',$data);
     }
     public function education_search()
     {
@@ -127,25 +155,34 @@ class SearchController extends BaseController
     }
     public function education_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['locations'] = $items->getlocation();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
-        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for,register.education');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.looking_for,register.education,register.community,register.dob,register.location
+        ,register.marital_status,register.height,register.profession,register.mother_tongue');
         $builder->join('register', 'user.id = register.user_id');
-        $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['education_search'] = $query->getResultArray();
+        $data['education_search'] = $query->getResultArray();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
             "education" => $this->request->getVar("education"),
 			
         ];
-        return view('user/search/education_search_fetch',$results);
+        return view('user/search/education_search_fetch',$data);
     }
     public function major_active_search()
     {
@@ -157,25 +194,34 @@ class SearchController extends BaseController
     }
     public function major_active_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['locations'] = $items->getlocation();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
-        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for,register.disabilities');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.looking_for,register.disabilities,register.community,register.dob,register.location
+        ,register.marital_status,register.height,register.profession,register.mother_tongue');
         $builder->join('register', 'user.id = register.user_id');
-        $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['major_active_search'] = $query->getResultArray();
+        $data['major_active_search'] = $query->getResultArray();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
             "disabilities" => $this->request->getVar("disabilities"),
 			
         ];
-        return view('user/search/major_active_search_fetch',$results);
+        return view('user/search/major_active_search_fetch',$data);
     }
     public function community_search()
     {
@@ -187,25 +233,34 @@ class SearchController extends BaseController
     }
     public function community_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['locations'] = $items->getlocation();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
-        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for,register.community');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.looking_for,register.community,register.dob,register.location,register.marital_status
+        ,register.height,register.profession,register.mother_tongue');
         $builder->join('register', 'user.id = register.user_id');
-        $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['community_search'] = $query->getResultArray();
+        $data['community_search'] = $query->getResultArray();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
             "community" => $this->request->getVar("community"),
 			
         ];
-        return view('user/search/community_search_fetch',$results);
+        return view('user/search/community_search_fetch',$data);
     }
     public function district_search()
     {
@@ -217,32 +272,55 @@ class SearchController extends BaseController
     }
     public function district_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['locations'] = $items->getlocation();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
-        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for,register.district');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.looking_for,register.district,register.community,register.dob,register.location
+        ,register.marital_status,register.height,register.profession,register.mother_tongue');
         $builder->join('register', 'user.id = register.user_id');
-        $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['district_search'] = $query->getResultArray();
+        $data['district_search'] = $query->getResultArray();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
             "district" => $this->request->getVar("district"),
 			
         ];
-        return view('user/search/district_search_fetch',$results);
+        return view('user/search/district_search_fetch',$data);
     }
     public function view_all_search()
     {
-        $user = new LoginModel();
-		$query  = $user->get();
-        $data['alldata'] = $query->getResultArray();
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['locations'] = $items->getlocation();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
+        $db = \Config\Database::connect();
         
+        $builder = $db->table('user');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.community,register.dob,register.location,register.marital_status,register.height
+        ,register.profession,register.mother_tongue');
+        $builder->join('register', 'user.id = register.user_id');
+        $query = $builder->get();
+        $data['alldata'] = $query->getResultArray();
+
         $session = session();
 		$data['user_id'] = $session->get('id');
         $get_id = $session->get('id');
@@ -267,21 +345,29 @@ class SearchController extends BaseController
     }
     public function advance_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['locations'] = $items->getlocation();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
         $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for,register.community,
-        register.marital_status,register.children,register.mother_tongue,register.family_value,register.district,register.education,register.profession,register.location');
+        register.marital_status,register.children,register.mother_tongue,register.family_value,register.district,register.education
+        ,register.community,register.dob,register.location,register.height,register.profession');
         $builder->join('register', 'user.id = register.user_id');
-        $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['advance_search'] = $query->getResultArray();
+        $data['advance_search'] = $query->getResultArray();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
             "community" => $this->request->getVar("community"),
             "marital_status" => $this->request->getVar("marital_status"),
@@ -294,7 +380,7 @@ class SearchController extends BaseController
             "location" => $this->request->getVar("location"),
 			
         ];
-        return view('user/search/advance_search_fetch',$results);
+        return view('user/search/advance_search_fetch',$data);
     }
     public function smart_search()
     {
@@ -313,21 +399,31 @@ class SearchController extends BaseController
     }
     public function smart_search_fetch()
     {
+        $items = new ItemModel();
+        $data['communitys'] = $items->getcommunity();
+        $data['locations'] = $items->getlocation();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['heights'] = $items->get_height();
+        $data['professions'] = $items->get_profession();
+        $data['mother_tongues'] = $items->get_mother_tongue();
+
         $db = \Config\Database::connect();
         
         $session = session();
-        $results['user_id'] = $session->get('id');
+        $data['user_id'] = $session->get('id');
 
         
         $builder = $db->table('user');
-        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image,register.looking_for,register.complexion,
-        register.marital_status,register.children,register.mother_tongue,register.family_value,register.district,register.profession,register.location');
+        $builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+        ,register.looking_for,register.complexion,register.community,register.marital_status,register.children
+        ,register.mother_tongue,register.family_value,register.district,register.profession,register.location
+        ,register.dob,register.height');
         $builder->join('register', 'user.id = register.user_id');
         $builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
         $query = $builder->get();
-        $results['advance_search'] = $query->getResultArray();
+        $data['advance_search'] = $query->getResultArray();
 
-        $results['user_data'] = [
+        $data['user_data'] = [
 			"looking_for" => $this->request->getVar("looking_for"),
             "complexion" => $this->request->getVar("complexion"),
             "marital_status" => $this->request->getVar("marital_status"),
@@ -339,8 +435,18 @@ class SearchController extends BaseController
             "location" => $this->request->getVar("location"),
 			
         ];
-        // dd($results['user_data']);
-        // exit();
-        return view('user/search/smart_search_fetch',$results);
+        return view('user/search/smart_search_fetch',$data);
+    }
+    public function home_search()
+    {
+        $items = new ItemModel();
+
+        $data['looking'] = $items->getlookingfor();
+        $data['communitys'] = $items->getcommunity();
+        $data['maritalstatus'] = $items->get_marital_status();
+        $data['districts'] = $items->get_district();
+        $data['professions'] = $items->get_profession();
+        $data['locations'] = $items->getlocation();
+        return view('home/index',$data);
     }
 }

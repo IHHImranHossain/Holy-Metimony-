@@ -101,7 +101,7 @@
                         <div class="form-submit">
                             <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
                             <div class="login_page">
-                                <p>Have Already Account?? <a href="<?= base_url('user_login') ?>">Login</a></p>
+                                <p>Have Already Account?? <a href="<?= base_url('user_login') ?>"> Login</a></p>
                             </div>
                         </div>
 

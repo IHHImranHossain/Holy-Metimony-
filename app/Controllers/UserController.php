@@ -15,17 +15,53 @@ class UserController extends BaseController
     {
         $this->helpers = array_merge($this->helpers, ['url','form']);
 	}
-	public function index()
+	public function index($id = null)
 	{
 		$user = new LoginModel();
-		$query  = $user->get();
+
+        $db = \Config\Database::connect();
+		
+		$session = session();
+		$data['user_id'] = $session->get();
+		$id = $data['user_id'];
+		
+        $builder = $db->table('user');
+		$builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+
+        ,partner_preferance.marital_status as p_marital_status,partner_preferance.children as p_children,partner_preferance.religion as p_religion
+		,partner_preferance.complexion as p_complexion,partner_preferance.drink as p_drink,partner_preferance.smoke as p_smoke
+		,partner_preferance.diet as p_diet,partner_preferance.education as p_education,partner_preferance.profession as p_profession
+		,partner_preferance.mother_tongue as p_mother_tongue,partner_preferance.family_value as p_family_value');
+
+		$builder->join('register', 'user.id = register.user_id');
+		$builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
+		$builder->where('user.id', $id['id']);
+        $query = $builder->get();
+		$data['login_user_data'] = $query->getResultArray();
+
+
+
+		$builder = $db->table('user');
+		$builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+		
+        ,register.community,register.location,register.marital_status,register.children
+		,register.complexion,register.disabilities,register.education,register.drink,register.smoke
+		,register.diet,register.mother_tongue,register.family_value,register.profession');
+
+		$builder->join('register', 'user.id = register.user_id');
+		$builder->join('partner_preferance', 'user.id = partner_preferance.user_id');
+        $query = $builder->get();
 		$data['alldata'] = $query->getResultArray();
+
 
 		
 		$data['recent_post'] = $user->get_recent_post();
 
-
-		$session = session();
+		// dd($data['alldata']);
+		// exit();
+		
+		
+		
 		$data['user_id'] = $session->get('id');
 		$get_id = $session->get('id');
 		
@@ -35,15 +71,12 @@ class UserController extends BaseController
 		// dd($data);
 		// exit();
 		
-		
-
 		return view("user/user_home",$data);
 	}
 	public function profile()
 	{
 		return view('user/profile');
 	}
-
 	public function edit_user_information()
 	{
 		$user = new LoginModel();
@@ -84,7 +117,7 @@ class UserController extends BaseController
 			// exit();
 			$user->update($ii,$userdata);
 			$session->setFlashdata('success', 'Successful Registration');
-			return redirect()->to(base_url('user', $id));
+			return redirect()->to(base_url('profile', $id));
 		}
         else
         {
@@ -196,7 +229,7 @@ class UserController extends BaseController
 		 	$users->update($id,$userdata);
 			
 			
-			return redirect()->to(base_url('user',$id));
+			return redirect()->to(base_url('profile',$id));
 		}
         else
         {
@@ -268,7 +301,7 @@ class UserController extends BaseController
 		 	$users->update($id,$userdata);
 			
 			
-			return redirect()->to(base_url('user',$id));
+			return redirect()->to(base_url('profile',$id));
 		}
         else
         {
@@ -321,7 +354,7 @@ class UserController extends BaseController
 		 	$users->update($id,$userdata);
 			
 			
-			return redirect()->to(base_url('user',$id));
+			return redirect()->to(base_url('profile',$id));
 		}
         else
         {
@@ -376,7 +409,7 @@ class UserController extends BaseController
 		 	$users->update($id,$userdata);
 			
 			
-			return redirect()->to(base_url('user',$id));
+			return redirect()->to(base_url('profile',$id));
 		}
         else
         {
@@ -473,7 +506,7 @@ class UserController extends BaseController
 		 	$users->update($id,$userdata);
 			
 			
-			return redirect()->to(base_url('user',$id));
+			return redirect()->to(base_url('profile',$id));
 		}
         else
         {
@@ -539,7 +572,6 @@ class UserController extends BaseController
 		$id = $data['id'];
 		return view('user/update_image',$data);
 	}
-
 	public function update_user_image()
 	{
 		helper('filesystem');
@@ -687,9 +719,76 @@ class UserController extends BaseController
 		return view('user/your_cv',$data);
 	}
 	
-	public function user_profile_view()
+	public function user_profile_view($id)
 	{
-		return view('user/user_profile_view');
+
+		
+		$data['get_cv_data'] = $this->your_cv();
+		
+		$db = \Config\Database::connect();
+		$user = new LoginModel();
+        $session = session();
+		$data['user_id'] = $session->get('id');
+		$get_id = $data['user_id'];
+		$find = $user->where('id',$get_id)->first();
+		$data['user_gender'] = $find['gender'];
+
+		$builder = $db->table('user');
+		$builder->select('user.id,user.first_name,user.last_name,user.gender,user.upload_image
+		,register.profile_created,register.user_id
+		,register.looking_for,register.community,register.dob,register.location,register.self_number,register.guardian_number,register.emergency_number
+		,register.convenient_time,register.contact_person_name,register.relation_contact_person,register.present_address,register.permanent_address,register.marital_status,register.children
+		,register.height,register.body_type,register.hair_color,register.eye_color,register.complexion,register.disabilities,register.blood
+		,register.education,register.profession,register.annual_income,register.work_place,register.diet,register.drink,register.smoke
+		,register.mother_tongue,register.can_speak,register.yourself,register.family_background,register.family_value,register.personal_value,register.father
+		,register.mother,register.no_of_brother,register.no_of_sister,register.whom_brother_married,register.whom_sister_married,register.district,register.zip_code
+		,register.parmanent_resident,register.country_origin
+
+		,personal_activities.interest,personal_activities.music,personal_activities.reads,personal_activities.movies,personal_activities.cooking,
+		personal_activities.dress_style
+		');
+
+
+		$builder->join('register', 'user.id = register.user_id');
+		$builder->join('personal_activities', 'user.id = personal_activities.user_id');
+		$builder->where('user.id', $id);
+        $query = $builder->get();
+		$data['alldata'] = $query->getResultArray();
+
+		return view('user/user_profile_view',$data);
+	}
+	public function sent_mail()
+	{
+		$userdata = [
+			"name" => $this->request->getVar("name"),
+			"email" => $this->request->getVar("email"),
+            "message" => $this->request->getVar("message"),
+			
+		];
+		$mail = $userdata['email'];
+		$name = $userdata['name'];
+		$massage = $userdata['message'];
+
+		$email = \Config\Services::email();
+		$email->setFrom($mail,$name);
+		$email->setTo('imran.hridoy2050@gmail.com');
+		$email->setSubject('Email Test');
+		$msg = $email->setMessage($massage);
+
+		$sent = $email->send();
+
+		if (! $sent)
+		{
+			echo "Senting Failed";
+			echo $email->printDebugger();
+		}
+		else
+		{
+			echo "Sent Successfully";
+			return redirect()->to(base_url('/'));
+		}
+		
+
 	}
 
 	public function logout()

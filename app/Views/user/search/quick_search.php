@@ -3,7 +3,7 @@
 <div class="signup-form">
     <br>
     <form method="POST" class="search-form" action="<?= base_url('quick_search_fetch')?>">
-        <h2 class="head">Quick Search</h2> <br>
+        <h2 class="search_title">Quick Search</h2> <br>
 
         <div class="form-group">
             <div class="form-select">

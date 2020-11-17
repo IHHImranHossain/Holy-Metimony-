@@ -7,6 +7,7 @@ display-flex,
   display: flex;
   display: -webkit-flex;
   height: 100%;
+  
 }
 
 /* @extend list-type-ulli; */
@@ -590,6 +591,12 @@ input.error {
 .login_page {
   display: flex;
 }
+.interest_registation_textarea
+{
+  width: 700px;
+  height:100px;
+
+}
 @media screen and (max-width: 1024px) {
   .container {
     width: calc(100% - 30px);
@@ -689,6 +696,19 @@ input.error {
     background: #fff;
     height: 950px;
   }
+  .login_page p{
+    margin-left: 0px;
+    
+  }
+  .interest_registation_textarea
+{
+  width: 300px;
+
+}
+.head {
+  padding-left: 0px;
+  color: black;
+}
 }
 
 @media screen and (max-width: 480px) {

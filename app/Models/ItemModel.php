@@ -220,85 +220,85 @@ class ItemModel extends Model
     }
     function get_maritalstatus()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 97 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 60 ");
         $results = $query->getResultArray();
         return $results;
     }
     function get_religion()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 99 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 52 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getcomplexion()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 101 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 66 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getprofession()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 103 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 70 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getdrink()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 105 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 73 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getmother_tongue()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 108 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 75 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getdistrict()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 109 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 92 ");
         $results = $query->getResultArray();
         return $results;
     }
     function get_height_range()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 95 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 62 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getchildren()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 98 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 61 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getbody_type()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 100 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 63 ");
         $results = $query->getResultArray();
         return $results;
     }
     function geteducation()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 102 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 69 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getdiet()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 104 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 72 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getsmoke()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 106 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 74 ");
         $results = $query->getResultArray();
         return $results;
     }
     function getfamily_value()
     {
-        $query = $this->db->query("SELECT * FROM items where attribute_id = 107 ");
+        $query = $this->db->query("SELECT * FROM items where attribute_id = 76 ");
         $results = $query->getResultArray();
         return $results;
     }
